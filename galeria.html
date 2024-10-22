@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineBlock Palette - Página principal</title>
+    <link href="https://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/minecraft-3');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            margin: 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 32px;
+            font-family: 'Minecraft', sans-serif;
+            margin-left: 85px;
+            font-weight: 700;
+        }
+
+        .link{
+            text-decoration: none;
+            color: #1c601d;
+            font-family: 'Minecraft', sans-serif; 
+        }
+
+        header nav a {
+            color: #fff;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        header nav a:hover {
+            text-decoration: none;
+        }
+
+        .login-signup {
+            margin-left: auto;
+        }
+
+        .login-signup a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+        }
+
+        .login-signup a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Estilos de las secciones */
+        .gallery-preview-container,
+        .resources-preview-container,
+        .tutorials-preview-container {
+            background-color: #000;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            display: none; 
+        }
+
+        .gallery-item,
+        .resources-item,
+        .tutorials-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #fff;
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 14px;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        .view-more-container {
+            text-align: right;
+            margin: 10px 20px;
+            display: none; 
+        }
+
+        .view-more-container a {
+            color: #fff;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        .view-more-container a:hover {
+            background-color: #555;
+        }
+
+/* Estilo de la paleta de bloques tipo Pinterest */
+.block-palette-masonry {
+    column-count: 4; /* Número de columnas, ajustable */
+    column-gap: 15px;
+    padding: 20px;
+}
+
+.block-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.block-item img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Ajuste responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .block-palette-masonry {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .block-palette-masonry {
+        column-count: 1;
+    }
+}
+
+
+        @import url('https://fonts.cdnfonts.com/css/minecraft-3');
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 40px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            width: 250px;
+        }
+
+        .form-container h2 {
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .form-container h2 span {
+            color: #ff66b2;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background-color: #333;
+        }
+
+        .palette-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .palette-blocks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .palette-blocks img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        .palette-info {
+            margin-top: 20px;
+        }
+
+        .palette-info h3 {
+            color: #000;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .palette-info p {
+            color: #666;
+        }
+
+        .palette-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .palette-info ul li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+        } 
+
+        .galeria{
+            position: absolute;
+            left: 880px;
+            top: 42px;
+        }
+
+        .tutoriales{
+            position: absolute;
+            left: 980px;
+            top: 42px;
+        }
+
+        .recursos{
+            position: absolute;
+            left: 1080px;
+            top: 42px;
+        }
+
+        .acerca{
+            position: absolute;
+            left: 1180px;
+            top: 42px;
+        }
+
+
+        
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff66b2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a class="titulo" href="index.html"><strong>MINEBLOCK <br> PALETTE</strong></a>
+        <nav>
+            <a class="galeria" href="#" onclick="showGallery()">galería</a>
+            <a class="tutoriales" href="#" onclick="showTutorials()">tutoriales</a>
+            <a class="recursos" href="#" onclick="showResources()">recursos</a>
+            <a class="acerca" href="acerca_de.html">acerca de</a>
+        </nav>
+        <div class="login-signup">
+            <a href="signup.html">Sign up</a>
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+
+<!-- Vista previa de la galería, inicialmente oculta -->
+<div class="gallery-preview-container" id="galleryPreview">
+    <div class="gallery-item">
+        <img src="src/preview1.jpg" alt="Galería imagen 1">
+        <p>@username1</p>
+    </div>
+    <div class="gallery-item">
+        <img src="src/preview2.jpg" alt="Galería imagen 2">
+        <p>@username2</p>
+    </div>
+    <div class="gallery-item">
+        <img src="src/preview3.jpg" alt="Galería imagen 3">
+        <p>@username3</p>
+    </div>
+</div>
+
+<!-- Botón "ver más" que redirige a la página completa de la galería -->
+<div class="view-more-container" id="viewMore">
+    <a href="galeria.html">ver más</a>
+</div>
+
+<!-- Vista previa de tutoriales, inicialmente oculta -->
+<div class="tutorials-preview-container" id="tutorialsPreview">
+    <div class="tutorials-item">
+        <p>¿Como usar  MINEBLOCK PALETTE?</p>
+        <a class="link" href="https://www.youtube.com/watch?v=AVw_5x5anfk&pp=ugMICgJlcxABGAHKBRtUWRPUklBTCBNSU5FQkxPQ0sgIFBBTEVUVEU%3D" target="_blank">Ver recurso</a>
+    </div>
+</div>
+
+<!-- Vista previa de recursos, inicialmente oculta -->
+<div class="resources-preview-container" id="resourcesPreview">
+    <div class="resources-item">
+        <p>Descarga texturas para MINECRAFT:</p>
+        <a class="link" href="https://zonacraft.net/mc/texturas/" target="_blank">Ver recurso</a>
+    </div>
+</div>
+
+<h3 style="font-size: 35px;margin-left: 60px; text-align: center;">¡Explora las creaciones de otros usuarios!</h3>
+<main>
+    <!-- Sección de la paleta de bloques estilo Pinterest -->
+    <div class="block-palette-masonry">
+        <div class="block-item">
+            <img src="src/preview1.jpg" alt="Bloque 1">
+        </div>
+        <div class="block-item">
+            <img src="src/preview2.jpg" alt="Bloque 2">
+        </div>
+        <div class="block-item">
+            <img src="src/preview3.jpg" alt="Bloque 3">
+        </div>
+        <div class="block-item">
+            <img src="src/preview1.jpg" alt="Bloque 4">
+        </div>
+        <div class="block-item">
+            <img src="src/preview2.jpg" alt="Bloque 5">
+        </div>
+        <div class="block-item">
+            <img src="src/preview3.jpg" alt="Bloque 6">
+        </div>
+        <div class="block-item">
+            <img src="src/preview1.jpg" alt="Bloque 7">
+        </div>
+        <!-- Agrega más imágenes de bloques aquí -->
+    </div>
+</main>
+
+
+<footer>
+    <p>©Creado por <a href="#">Isabel Espiriella</a>, <a href="#">Frida Mena</a> y <a href="#">Paulina Orozco</a></p>
+</footer>
+
+<script>
+    function showGallery() {
+        // Mostrar la galería y el botón "ver más"
+        document.getElementById('galleryPreview').style.display = 'flex';
+        document.getElementById('viewMore').style.display = 'block';
+        document.getElementById('tutorialsPreview').style.display = 'none';
+        document.getElementById('resourcesPreview').style.display = 'none';
+    }
+
+    function showTutorials() {
+        // Mostrar tutoriales
+        document.getElementById('tutorialsPreview').style.display = 'flex';
+        document.getElementById('galleryPreview').style.display = 'none';
+        document.getElementById('viewMore').style.display = 'none';
+        document.getElementById('resourcesPreview').style.display = 'none';
+    }
+
+    function showResources() {
+        // Mostrar recursos
+        document.getElementById('resourcesPreview').style.display = 'flex';
+        document.getElementById('galleryPreview').style.display = 'none';
+        document.getElementById('viewMore').style.display = 'none';
+        document.getElementById('tutorialsPreview').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

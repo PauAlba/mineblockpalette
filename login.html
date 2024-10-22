@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineBlock Palette - Login</title>
+    <link href="https://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/minecraft-3');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('src/login-si.jpg');
+            /* Fondo general */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+
+        .titulo {
+            margin: 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 32px;
+            font-family: 'Minecraft', sans-serif;
+            margin-left: 85px;
+            font-weight: 700;
+        }
+
+
+        header nav a {
+            color: #fff;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        header nav a:hover {
+            text-decoration: none;
+        }
+
+        .login-signup {
+            margin-right: 20px;
+        }
+
+        .login-signup a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+        }
+
+        .login-signup a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Estilos del formulario de Login */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-family: 'Minecraft', sans-serif;
+            color: #333;
+        }
+
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 40%;
+        }
+
+        .form-container button:hover {
+            background-color: #333;
+        }
+
+        /* Estilos de las secciones */
+        .gallery-preview-container,
+        .resources-preview-container,
+        .tutorials-preview-container {
+            background-color: #000;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            display: none; 
+        }
+
+        .gallery-item,
+        .resources-item,
+        .tutorials-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #fff;
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 14px;
+            font-family: 'Minecraft', sans-serif;
+        }
+        .view-more-container {
+            text-align: right;
+            margin: 10px 20px;
+            display: none;
+        }
+
+        .view-more-container {
+            text-align: right;
+            margin: 10px auto;
+            /* Ajustar margen */
+            display: none;
+            width: 80%;
+            /* Alinear el botón con el formulario */
+        }
+
+        .view-more-container a:hover {
+            background-color: #555;
+        }
+
+        .galeria {
+            position: absolute;
+            left: 895px;
+            top: 42px;
+        }
+
+        .tutoriales {
+            position: absolute;
+            left: 995px;
+            top: 42px;
+        }
+
+        .recursos {
+            position: absolute;
+            left: 1095px;
+            top: 42px;
+        }
+
+        .acerca {
+            position: absolute;
+            left: 1195px;
+            top: 42px;
+        }
+
+        main {
+            display: block;
+            /* Cambia a bloque para apilar los elementos verticalmente */
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff66b2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="titulo" href="index.html"><strong>MINEBLOCK <br>PALETTE</strong></a>
+        <nav>
+            <a class="galeria" href="#" onclick="showGallery()">galería</a>
+            <a class="tutoriales" href="#" onclick="showTutorials()">tutoriales</a>
+            <a class="recursos" href="#" onclick="showResources()">recursos</a>
+            <a class="acerca" href="acerca_de.html">acerca de</a>
+        </nav>
+        <div class="login-signup">
+            <a href="signup.html">Sign up</a>
+        </div>
+    </header>
+
+    <!-- Vista previa de la galería, inicialmente oculta -->
+    <div class="gallery-preview-container" id="galleryPreview">
+        <div class="gallery-item">
+            <img src="src/preview1.jpg" alt="Galería imagen 1">
+            <p>@username1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="src/preview2.jpg" alt="Galería imagen 2">
+            <p>@username2</p>
+        </div>
+        <div class="gallery-item">
+            <img src="src/preview3.jpg" alt="Galería imagen 3">
+            <p>@username3</p>
+        </div>
+    </div>
+
+    <!-- Botón "ver más" que redirige a la página completa de la galería -->
+    <div class="view-more-container" id="viewMore">
+        <a href="galeria.html">ver más</a>
+    </div>
+
+    <!-- Vista previa de tutoriales, inicialmente oculta -->
+    <div class="tutorials-preview-container" id="tutorialsPreview">
+        <div class="tutorials-item">
+            <p>¿Como usar MINEBLOCK PALETTE?</p>
+            <a href="https://www.youtube.com/watch?v=AVw_5x5anfk&pp=ugMICgJlcxABGAHKBRtUWRPUklBTCBNSU5FQkxPQ0sgIFBBTEVUVEU%3D"
+                target="_blank">Ver recurso</a>
+        </div>
+    </div>
+
+    <!-- Vista previa de recursos, inicialmente oculta -->
+    <div class="resources-preview-container" id="resourcesPreview">
+        <div class="resources-item">
+            <p>Recurso para mejorar tu eficiencia minera:</p>
+            <a href="https://www.youtube.com/watch?v=ejemplo3" target="_blank">Ver recurso</a>
+        </div>
+        <div class="resources-item">
+            <p>Recurso sobre los mejores mods de Minecraft:</p>
+            <a href="https://www.youtube.com/watch?v=ejemplo4" target="_blank">Ver recurso</a>
+        </div>
+    </div>
+
+
+    <main>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <br><br>
+                <button type="submit">Login</button>
+                <br><br>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>©Creado por <a href="#">Isabel Espriella</a>, <a href="#">Frida Mena</a> y <a href="#">Paulina Orozco</a></p>
+    </footer>
+
+    <script>
+        function showGallery() {
+            // Mostrar la galería y el botón "ver más"
+            document.getElementById('galleryPreview').style.display = 'flex';
+            document.getElementById('viewMore').style.display = 'block';
+            document.getElementById('tutorialsPreview').style.display = 'none';
+            document.getElementById('resourcesPreview').style.display = 'none';
+        }
+
+        function showTutorials() {
+            // Mostrar tutoriales
+            document.getElementById('tutorialsPreview').style.display = 'flex';
+            document.getElementById('galleryPreview').style.display = 'none';
+            document.getElementById('viewMore').style.display = 'none';
+            document.getElementById('resourcesPreview').style.display = 'none';
+        }
+
+        function showResources() {
+            // Mostrar recursos
+            document.getElementById('resourcesPreview').style.display = 'flex';
+            document.getElementById('galleryPreview').style.display = 'none';
+            document.getElementById('viewMore').style.display = 'none';
+            document.getElementById('tutorialsPreview').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
